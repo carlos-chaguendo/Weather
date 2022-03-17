@@ -7,10 +7,12 @@
 
 import UIKit
 import WeatherCore
+import EFCountingLabel
 
 class LocationPreviewTableViewController: UITableViewController {
+    @IBOutlet var backgroundView: UIView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: EFCountingLabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -33,6 +35,11 @@ class LocationPreviewTableViewController: UITableViewController {
         tableView.registerNIB(DayWeatherTableViewCell.self)
         tableView.separatorColor = .clear
         tableView.allowsSelection = false
+        
+        tableView.backgroundView = backgroundView
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
     }
     
     @available(*, unavailable, message: "Cat not use inside storyboard")
@@ -65,8 +72,11 @@ class LocationPreviewTableViewController: UITableViewController {
         guard let current = weathers.first else {
             preconditionFailure()
         }
+        temperatureLabel.countFrom(0, to: current.temperature, withDuration: 1)
+        temperatureLabel.setUpdateBlock { value, sender in
+            sender.text = self.temperatureFormatt(value)
+        }
         
-        temperatureLabel.text = temperatureFormatt(current.temperature)
     
         let date = dayNameFormatter.string(from: Date())
         statusLabel.text = "\(date) - \(current.status.rawValue)"
@@ -91,6 +101,7 @@ class LocationPreviewTableViewController: UITableViewController {
         let ints = round(temperature)
         let temperature = Measurement(value: ints, unit: unit)
         formatter.unitOptions = options
+        formatter.numberFormatter.maximumFractionDigits = 0
         return formatter.string(from: temperature)
     }
     
@@ -109,6 +120,7 @@ class LocationPreviewTableViewController: UITableViewController {
         cell.statusLabel.text = weather.status.rawValue
         cell.minTemperatureLabel.text = temperatureFormatt(weather.minTemperature, options: .temperatureWithoutUnit)
         cell.maxTemperatureLabel.text = temperatureFormatt(weather.maxTemperature, options: .temperatureWithoutUnit)
+        cell.backgroundColor = .clear
         // TODO: Agregar la imagen que reresenta el estado del tiempo
         // hay que solucionar el problema con el resuso de las celdas y las promesas
         // cunado la promesa se cumpal, puede que la celda ya pertenesca a otro indice

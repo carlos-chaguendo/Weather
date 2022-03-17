@@ -19,12 +19,26 @@ class SearchLocationTableViewController: UITableViewController {
     
     private var searchController: SearchController?
     
+    @IBOutlet weak var emptyButton: UIButton!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet var emptyView: UIView!
+    
+    init() {
+        super.init(nibName: String(describing: SearchLocationTableViewController.self), bundle: .main)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         super.loadView()
         navigationItem.title = "Locations"
         if #available(iOS 13, *) {
             navigationItem.searchController = SearchController(delegate: self)
             navigationItem.searchController?.searchBar.showsCancelButton = false
+            navigationItem.searchController?.searchBar.placeholder = "Search by city name"
         } else {
             let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
             searchBar.searchBarStyle = .prominent
@@ -62,7 +76,25 @@ class SearchLocationTableViewController: UITableViewController {
          }.done(on: DispatchQueue.main) { locations in
              self.locations = locations
              self.tableView.reloadData()
-         }.cauterize()
+         }.catch { error in
+             switch error {
+             case CLLocationManager.PMKError.notAuthorized:
+                 self.emptyButton.setTitle("Enable Location Services", for: .normal)
+                 self.emptyButton.addTarget(self, action: #selector(self.openSettingsAction), for: .touchUpInside)
+                 self.titleLabel.text = "Not Authorized"
+                 self.messageLabel.text = "We use your location to display weather information for nearby locations"
+                 self.tableView.backgroundView = self.emptyView
+             default:
+                 debugPrint(error)
+             }
+         }
+    }
+    
+    @objc private func openSettingsAction() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        UIApplication.shared.open(url)
     }
     
     // MARK: - Table view data source
