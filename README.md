@@ -8,6 +8,18 @@ Weather es una aplicacion disponible en iOS iPadOS, macOS que nos ayuda a consul
 - Xcode 13
 - Swift Package Manager 5.5
 
+## Ambiente de desarrollo
+
+```
+git clone git@github.com:carlos-chaguendo/Weather.git
+cd Weather
+open Weather.xcodeproj
+
+```
+Se debe esperar a que descarge las dependencias antes de ejecutar
+
+
+
 
 ## Estructura del proyecto
 - **Weather:**  Fuentes principales de la aplicacion
@@ -16,6 +28,12 @@ Weather es una aplicacion disponible en iOS iPadOS, macOS que nos ayuda a consul
     - **Repository:** Los objetos que sirven como acceso a recurso, en este caso recursos de red, pero tambien podria ser base de datos locales
     	- **Http** Abstrae el llamado a recursos en red, por ahora usa Almofire, pero podria cambiarse
     - **Service** Objetos de negocios los cuales junto con los repositorios nos ayudan a gestionar los datos de la aplicacion, un servicio podria llamar a un recurso de red y luego guardarlo de manera local 
+    
+    
 
+## Por hacer
+ - Seccion de favoritos
+ - usar WidgetKit para mostrar la informacion de una ubicacion en la pantalla de inicio
+ 	- Para esto se puede usar WeatherCore  
     
 
