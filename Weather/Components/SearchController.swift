@@ -25,7 +25,7 @@ class SearchController: UISearchController, UISearchBarDelegate {
     private weak var updater: SearchControllerDelegate?
 
     init(delegate: SearchControllerDelegate) {
-        super.init(searchResultsController: nil)
+        super.init(nibName: nil, bundle: nil)
         obscuresBackgroundDuringPresentation = false
         hidesNavigationBarDuringPresentation = false
         searchBar.delegate = self

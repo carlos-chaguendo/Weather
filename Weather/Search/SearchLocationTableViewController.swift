@@ -17,11 +17,21 @@ class SearchLocationTableViewController: UITableViewController {
     private let locationManager = CLLocationManager()
     private var locations:[Location] = []
     
+    private var searchController: SearchController?
+    
     override func loadView() {
         super.loadView()
         navigationItem.title = "Locations"
-        navigationItem.searchController = SearchController(delegate: self)
-        navigationItem.searchController?.searchBar.showsCancelButton = false
+        if #available(iOS 13, *) {
+            navigationItem.searchController = SearchController(delegate: self)
+            navigationItem.searchController?.searchBar.showsCancelButton = false
+        } else {
+            let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
+            searchBar.searchBarStyle = .prominent
+            searchController = SearchController(delegate: self)
+            tableView.tableHeaderView = searchBar
+            searchBar.delegate = searchController
+        }
     }
     
     override func viewDidLoad() {

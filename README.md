@@ -5,8 +5,8 @@ Weather es una aplicacion disponible en iOS iPadOS, macOS que nos ayuda a consul
 
 ## Requerimientos
 
-- Xcode 13
-- Swift Package Manager 5.5
+- Xcode 11
+- Swift Package Manager
 
 ## Ambiente de desarrollo
 
