@@ -13,10 +13,10 @@ Weather es una aplicacion disponible en iOS iPadOS, macOS que nos ayuda a consul
 ```
 git clone git@github.com:carlos-chaguendo/Weather.git
 cd Weather
-open Weather.xcodeproj
-
+open Weather.xcworkspace
 ```
 Se debe esperar a que descarge las dependencias antes de ejecutar
+File>Packages>Reset Packages cache
 
 
 
