@@ -22,6 +22,7 @@
 		788BFA4227E2C9E2008B4D00 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788BFA4127E2C9E2008B4D00 /* UIImageView.swift */; };
 		788BFA4527E2D931008B4D00 /* PMKCoreLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 788BFA4427E2D931008B4D00 /* PMKCoreLocation */; };
 		788BFA4727E2DA6B008B4D00 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788BFA4627E2DA6B008B4D00 /* UIViewController.swift */; };
+		BAA1A75227E37C65000F8F5D /* EFCountingLabel in Frameworks */ = {isa = PBXBuildFile; productRef = BAA1A75127E37C65000F8F5D /* EFCountingLabel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA1A75227E37C65000F8F5D /* EFCountingLabel in Frameworks */,
 				788BFA2327E28520008B4D00 /* WeatherCore in Frameworks */,
 				788BFA4527E2D931008B4D00 /* PMKCoreLocation in Frameworks */,
 			);
@@ -161,6 +163,7 @@
 			packageProductDependencies = (
 				788BFA2227E28520008B4D00 /* WeatherCore */,
 				788BFA4427E2D931008B4D00 /* PMKCoreLocation */,
+				BAA1A75127E37C65000F8F5D /* EFCountingLabel */,
 			);
 			productName = Weather;
 			productReference = 788BF9E927E27F9A008B4D00 /* Weather.app */;
@@ -192,6 +195,7 @@
 			mainGroup = 788BF9E027E27F9A008B4D00;
 			packageReferences = (
 				788BFA4327E2D930008B4D00 /* XCRemoteSwiftPackageReference "CoreLocation" */,
+				BAA1A75027E37C65000F8F5D /* XCRemoteSwiftPackageReference "EFCountingLabel" */,
 			);
 			productRefGroup = 788BF9EA27E27F9A008B4D00 /* Products */;
 			projectDirPath = "";
@@ -449,6 +453,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		BAA1A75027E37C65000F8F5D /* XCRemoteSwiftPackageReference "EFCountingLabel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EFPrefix/EFCountingLabel.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -460,6 +472,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 788BFA4327E2D930008B4D00 /* XCRemoteSwiftPackageReference "CoreLocation" */;
 			productName = PMKCoreLocation;
+		};
+		BAA1A75127E37C65000F8F5D /* EFCountingLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAA1A75027E37C65000F8F5D /* XCRemoteSwiftPackageReference "EFCountingLabel" */;
+			productName = EFCountingLabel;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchLocationTableViewController" customModule="Weather" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="BT6-04-uas" id="Z2l-XQ-gXC"/>
+                <outlet property="emptyButton" destination="567-Sg-TvM" id="8L0-qX-8xU"/>
+                <outlet property="emptyView" destination="LJY-SI-0VM" id="Rd0-jU-xBl"/>
+                <outlet property="messageLabel" destination="0Wg-qv-7Mt" id="Q4e-OY-hMp"/>
+                <outlet property="titleLabel" destination="scB-h3-l7W" id="9dk-uL-9Gc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,8 +31,64 @@
             </connections>
             <point key="canvasLocation" x="139" y="81"/>
         </tableView>
+        <view contentMode="scaleToFill" id="LJY-SI-0VM">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ltE-w6-wA1">
+                    <rect key="frame" x="20" y="401" width="374" height="94"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scB-h3-l7W">
+                            <rect key="frame" x="157.5" y="0.0" width="59" height="30"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wg-qv-7Mt">
+                            <rect key="frame" x="169.5" y="38" width="35.5" height="17"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="567-Sg-TvM">
+                            <rect key="frame" x="153.5" y="63" width="67" height="31"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Qba-NX-pCQ"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailingMargin" secondItem="ltE-w6-wA1" secondAttribute="trailing" id="NFq-hR-QGL"/>
+                <constraint firstItem="ltE-w6-wA1" firstAttribute="centerX" secondItem="LJY-SI-0VM" secondAttribute="centerX" id="Wda-Oc-EjY"/>
+                <constraint firstItem="ltE-w6-wA1" firstAttribute="leading" secondItem="LJY-SI-0VM" secondAttribute="leadingMargin" id="WwX-WE-mpY"/>
+                <constraint firstItem="ltE-w6-wA1" firstAttribute="centerY" secondItem="LJY-SI-0VM" secondAttribute="centerY" id="ppn-s3-p4l"/>
+            </constraints>
+            <point key="canvasLocation" x="826" y="80"/>
+        </view>
+        <view contentMode="scaleToFill" id="BT6-04-uas">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountain" translatesAutoresizingMaskIntoConstraints="NO" id="g7g-qn-9Su">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="6i6-Ug-IuA"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="g7g-qn-9Su" secondAttribute="trailing" id="I2y-MI-aJv"/>
+                <constraint firstItem="g7g-qn-9Su" firstAttribute="top" secondItem="6i6-Ug-IuA" secondAttribute="top" id="Smz-UL-hSF"/>
+                <constraint firstAttribute="bottom" secondItem="g7g-qn-9Su" secondAttribute="bottom" id="maF-GQ-H2X"/>
+                <constraint firstItem="g7g-qn-9Su" firstAttribute="leading" secondItem="6i6-Ug-IuA" secondAttribute="leading" id="pfE-MX-D23"/>
+            </constraints>
+            <point key="canvasLocation" x="-584" y="80"/>
+        </view>
     </objects>
     <resources>
+        <image name="mountain" width="606" height="988"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
