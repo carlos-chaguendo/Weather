@@ -20,8 +20,8 @@ class LocationPreviewTableViewController: UITableViewController {
     
     private var weathers: [Weather] = []
     
-    ///  PInicializa la previzualizacion del clima segun una ubicacion
-    /// - Parameter woeid: Where On Earth ID
+    ///  Inicializa la previzualizacion del clima segun una ubicacion
+    /// - Parameter location:
     init(location: Location) {
         self.location = location
         super.init(nibName: String(describing: LocationPreviewTableViewController.self), bundle: Bundle.main)
@@ -67,8 +67,7 @@ class LocationPreviewTableViewController: UITableViewController {
         }
         
         temperatureLabel.text = temperatureFormatt(current.temperature)
-      
-        
+    
         let date = dayNameFormatter.string(from: Date())
         statusLabel.text = "\(date) - \(current.status.rawValue)"
         
@@ -77,22 +76,25 @@ class LocationPreviewTableViewController: UITableViewController {
             .compactMap{ UIImage(data: $0) }
             .done { img in
                 self.imageView.animateUpdateImage(img)
-            }.catch(showError)
+            }.catch(self.showError)
                     
         tableView.reloadData()
     }
     
-    private func showError(_ error: Error) {
-        print(error)
-    }
-    
-    private func temperatureFormatt(_ temperature: Double, options: MeasurementFormatter.UnitOptions = []) -> String {
+    /// Formatea un valor de una temperature a un valor reprecentable para el usuario
+    /// - Parameters:
+    ///   - temperature: El valor de la temperatura
+    ///   - unit: La unidad de medida en la que esta el valor dado
+    ///   - options:
+    /// - Returns: la temperatura formatead segun la configuracion del lenguage & region del dipositivo
+    private func temperatureFormatt(_ temperature: Double, unit: UnitTemperature = .celsius, options: MeasurementFormatter.UnitOptions = []) -> String {
         let ints = round(temperature)
-        let temperature = Measurement(value: ints, unit: UnitTemperature.celsius)
+        let temperature = Measurement(value: ints, unit: unit)
         formatter.unitOptions = options
         return formatter.string(from: temperature)
     }
     
+    //MARK: - Table Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         weathers.count
     }
@@ -107,7 +109,9 @@ class LocationPreviewTableViewController: UITableViewController {
         cell.statusLabel.text = weather.status.rawValue
         cell.minTemperatureLabel.text = temperatureFormatt(weather.minTemperature, options: .temperatureWithoutUnit)
         cell.maxTemperatureLabel.text = temperatureFormatt(weather.maxTemperature, options: .temperatureWithoutUnit)
-
+        // TODO: Agregar la imagen que reresenta el estado del tiempo
+        // hay que solucionar el problema con el resuso de las celdas y las promesas
+        // cunado la promesa se cumpal, puede que la celda ya pertenesca a otro indice
         return cell
     }
 }

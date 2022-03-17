@@ -8,32 +8,51 @@
 import UIKit
 import PromiseKit
 import WeatherCore
+import CoreLocation
+import PMKCoreLocation
 
 /// Controlador encargado de gestionar la UI de busqueda de ubicaciones
 class SearchLocationTableViewController: UITableViewController {
     
+    private let locationManager = CLLocationManager()
     private var locations:[Location] = []
     
     override func loadView() {
         super.loadView()
         navigationItem.title = "Locations"
         navigationItem.searchController = SearchController(delegate: self)
+        navigationItem.searchController?.searchBar.showsCancelButton = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .always
         tableView.register(UITableViewCell.self)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Near me", style: .done, target: self, action: #selector(searchByUserLocation))
+        searchByUserLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesSearchBarWhenScrolling = false
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationItem.hidesSearchBarWhenScrolling = true
+    }
+    
+    @objc private func searchByUserLocation() {
+        firstly {
+            CLLocationManager.requestLocation(authorizationType: .whenInUse)
+        }.firstValue
+         .map { "\($0.coordinate.latitude),\($0.coordinate.longitude)"}
+         .then { location in
+            LocationService.searchBy(latlong: location)
+         }.done(on: DispatchQueue.main) { locations in
+             self.locations = locations
+             self.tableView.reloadData()
+         }.cauterize()
     }
     
     // MARK: - Table view data source
