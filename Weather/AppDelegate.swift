@@ -23,12 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = nav
         window.makeKeyAndVisible()
         
-        #if targetEnvironment(macCatalyst)
-            window.windowScene?.titlebar?.titleVisibility = .hidden
-            window.windowScene?.sizeRestrictions?.minimumSize.width = 450 * 3
-            window.windowScene?.sizeRestrictions?.minimumSize.height = 600
-        #endif
-        
         // remove previous from memory
         self.window?.rootViewController = nil
         self.window = window
