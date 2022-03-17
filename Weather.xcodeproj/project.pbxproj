@@ -31,7 +31,6 @@
 		788BF9F527E27F9B008B4D00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		788BF9F827E27F9B008B4D00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		788BF9FA27E27F9B008B4D00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		788BFA2027E2809F008B4D00 /* WeatherCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = WeatherCore; path = Packages/WeatherCore; sourceTree = "<group>"; };
 		788BFA2A27E295F2008B4D00 /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
 		788BFA2B27E295F2008B4D00 /* SearchLocationTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLocationTableViewController.xib; sourceTree = "<group>"; };
 		788BFA2F27E296A7008B4D00 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		788BFA3E27E2C9B6008B4D00 /* DayWeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayWeatherTableViewCell.xib; sourceTree = "<group>"; };
 		788BFA4127E2C9E2008B4D00 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		788BFA4627E2DA6B008B4D00 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		788BFA4D27E3BDBD008B4D00 /* WeatherCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = WeatherCore; path = Packages/WeatherCore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +94,7 @@
 		788BFA1F27E2809F008B4D00 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				788BFA2027E2809F008B4D00 /* WeatherCore */,
+				788BFA4D27E3BDBD008B4D00 /* WeatherCore */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
