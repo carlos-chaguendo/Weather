@@ -13,25 +13,25 @@ import PMKCoreLocation
 
 /// Controlador encargado de gestionar la UI de busqueda de ubicaciones
 class SearchLocationTableViewController: UITableViewController {
-    
+
     private let locationManager = CLLocationManager()
-    private var locations:[Location] = []
+    private var locations: [Location] = []
     private var searchController: SearchController?
-    
+
     @IBOutlet var backgroundView: UIView!
     @IBOutlet weak var emptyButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet var emptyView: UIView!
-    
+
     init() {
         super.init(nibName: String(describing: SearchLocationTableViewController.self), bundle: .main)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func loadView() {
         super.loadView()
         navigationItem.title = "Locations"
@@ -48,7 +48,7 @@ class SearchLocationTableViewController: UITableViewController {
             searchBar.delegate = searchController
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .always
@@ -56,7 +56,7 @@ class SearchLocationTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Near me", style: .done, target: self, action: #selector(searchByUserLocation))
         searchByUserLocation()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -66,7 +66,7 @@ class SearchLocationTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         navigationItem.hidesSearchBarWhenScrolling = true
     }
-    
+
     @objc private func searchByUserLocation() {
         firstly {
             CLLocationManager.requestLocation(authorizationType: .whenInUse)
@@ -92,19 +92,19 @@ class SearchLocationTableViewController: UITableViewController {
              }
          }
     }
-    
+
     @objc private func openSettingsAction() {
         guard let url = URL(string: UIApplication.openSettingsURLString) else {
             return
         }
         UIApplication.shared.open(url)
     }
-    
+
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         locations.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeue(cell: UITableViewCell.self, for: indexPath) else {
             preconditionFailure("Needs register cell before")
@@ -113,24 +113,23 @@ class SearchLocationTableViewController: UITableViewController {
         cell.textLabel?.text = location.title
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let location = locations[indexPath.row]
         let ctrl = LocationPreviewTableViewController(location: location)
         self.show(ctrl, sender: nil)
     }
-    
-    
+
 }
 
 extension SearchLocationTableViewController: SearchControllerDelegate {
-    
+
     func clearFilter(for vc: SearchController) {
         self.locations = []
         self.tableView.reloadData()
         self.view.endEditing(true)
     }
-    
+
     func searchController(_ vc: SearchController, textDidChange searchText: String) {
         guard !searchText.isEmpty else {
             return
@@ -146,6 +145,5 @@ extension SearchLocationTableViewController: SearchControllerDelegate {
             self.tableView.reloadData()
         }
     }
-    
-    
+
 }

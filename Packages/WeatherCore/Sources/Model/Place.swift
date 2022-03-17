@@ -12,14 +12,14 @@ public class Place: Codable {
     public let title: String
     public let woeid: Int
     public let weathers: [Weather]
-    
+
     enum CodingKeys: String, CodingKey {
          case title
          case timezoneId = "timezone"
          case woeid
          case weathers = "consolidated_weather"
      }
-    
+
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         title = try values.decode(String.self, forKey: .title)

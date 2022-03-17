@@ -8,7 +8,7 @@
 import Foundation
 
 extension Weather {
-    
+
     public enum Status: String, Codable {
         case snow = "Snow"
         case hail = "Hail"
@@ -22,5 +22,5 @@ extension Weather {
         case celar = "Clear"
         case thunder = "Thunder"
     }
-    
+
 }

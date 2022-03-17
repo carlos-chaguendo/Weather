@@ -2,11 +2,11 @@ import Alamofire
 import PromiseKit
 
 public class Http {
-    
+
     private static let api = "https://www.metaweather.com/api"
-    
+
     private init() {}
-    
+
     /// Retorna una URL con todos los componentes necesarions `protocol`://`domain`:`port`/`path`
     ///
     /// - Parameter url: URL de entrada
@@ -17,8 +17,8 @@ public class Http {
         }
         return "\(Http.api)\(url)"
     }
-    
-    public static func request<Element: Codable>(_ method: HTTPMethod, _ url:String, parameters: Parameters? = nil) -> Promise<Element?> {
+
+    public static func request<Element: Codable>(_ method: HTTPMethod, _ url: String, parameters: Parameters? = nil) -> Promise<Element?> {
         Promise { seal in
             AF.request(unwrapurl(route: url), method: method, parameters: parameters)
                 .responseDecodable(of: Element.self) { response in
@@ -29,11 +29,11 @@ public class Http {
                         seal.reject(error)
                     }
                 }
-            
+
         }
     }
-    
-    public static func request<Element: Codable>(_ method: HTTPMethod, _ url:String, parameters: Parameters? = nil) -> Promise<[Element]> {
+
+    public static func request<Element: Codable>(_ method: HTTPMethod, _ url: String, parameters: Parameters? = nil) -> Promise<[Element]> {
         Promise { seal in
             AF.request(unwrapurl(route: url), method: method, parameters: parameters)
                 .responseDecodable(of: [Element].self) { response in
@@ -44,7 +44,7 @@ public class Http {
                         seal.reject(error)
                     }
                 }
-            
+
         }
     }
 }

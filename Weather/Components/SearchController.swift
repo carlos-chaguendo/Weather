@@ -8,7 +8,7 @@
 import UIKit
 
 @objc protocol SearchControllerDelegate: AnyObject {
-    
+
     @objc optional func beginEditing(for vc: SearchController)
     @objc optional func endEditing(for vc: SearchController)
 
@@ -46,11 +46,11 @@ class SearchController: UISearchController, UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.updater?.beginEditing?(for: self)
     }
-    
+
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.updater?.endEditing?(for: self)
     }
-    
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         /// cancela el actual item si existe
         pendingRequestWorkItem?.cancel()
@@ -59,7 +59,7 @@ class SearchController: UISearchController, UISearchBarDelegate {
             clearFilter()
             return
         }
-        
+
         let requestWorkItem = DispatchWorkItem { [weak self] in
             guard let self = self else { return }
             self.updater?.searchController(self, textDidChange: searchText)

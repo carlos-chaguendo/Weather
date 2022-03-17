@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIImageView {
-    
+
     ///  Realiza una animacion de tipo fade, mientras se intercambia la imagen actual
     /// - Parameter image: Nueva imagen 
     func animateUpdateImage(_ image: UIImage) {
@@ -19,5 +19,5 @@ extension UIImageView {
             self.image = image
         }, completion: nil)
     }
-    
+
 }

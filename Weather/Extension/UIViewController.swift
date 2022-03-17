@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    
+
     ///  maneja los errores globales, puede postrar erroes a el usuario o ignoral algunos
     /// - Parameter error: 
     func showError(_ error: Error) {
@@ -19,5 +19,5 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "Accept", style: .cancel))
         self.present(alert, animated: true)
     }
-    
+
 }

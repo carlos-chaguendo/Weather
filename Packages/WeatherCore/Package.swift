@@ -12,11 +12,11 @@ let package = Package(
     products: [
         .library(
             name: "WeatherCore",
-            targets: ["WeatherCore"]),
+            targets: ["WeatherCore"])
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire", .exact(Version("5.5.0"))),
-        .package(url: "https://github.com/mxcl/PromiseKit", .exact(Version("6.12.0"))),
+        .package(url: "https://github.com/mxcl/PromiseKit", .exact(Version("6.12.0")))
     ],
     targets: [
         .target(
@@ -25,6 +25,6 @@ let package = Package(
         path: "Sources"),
         .testTarget(
             name: "WeatherCoreTests",
-            dependencies: ["WeatherCore"]),
+            dependencies: ["WeatherCore"])
     ]
 )

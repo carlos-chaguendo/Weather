@@ -15,7 +15,7 @@ public class Weather: Codable {
     public let status: Status
     public let statusCode: String
     public let date: Date
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case minTemperature = "min_temp"
@@ -25,10 +25,10 @@ public class Weather: Codable {
         case date = "applicable_date"
         case statusCode = "weather_state_abbr"
     }
-    
+
     required public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         id = try values.decode(Int64.self, forKey: .id)
         minTemperature = try values.decode(Double.self, forKey: .minTemperature)
         maxTemperature = try values.decode(Double.self, forKey: .maxTemperature)
@@ -36,12 +36,10 @@ public class Weather: Codable {
         status = try values.decode(Weather.Status.self, forKey: .status)
         statusCode = try values.decode(String.self, forKey: .statusCode)
         let date  = try values.decode(String.self, forKey: .date)
-        
+
         guard let date = DateFormatter.yyyyMMdd.date(from: date) else {
             preconditionFailure("Invalid date formatt")
         }
         self.date = date
     }
 }
-
-

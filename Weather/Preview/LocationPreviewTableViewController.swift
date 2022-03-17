@@ -15,38 +15,38 @@ class LocationPreviewTableViewController: UITableViewController {
     @IBOutlet weak var temperatureLabel: EFCountingLabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    
+
     private let location: Location
     private let formatter = MeasurementFormatter()
     private let dayNameFormatter = DateFormatter()
-    
+
     private var weathers: [Weather] = []
-    
+
     ///  Inicializa la previzualizacion del clima segun una ubicacion
     /// - Parameter location:
     init(location: Location) {
         self.location = location
         super.init(nibName: String(describing: LocationPreviewTableViewController.self), bundle: Bundle.main)
     }
-    
+
     override func loadView() {
         super.loadView()
         dayNameFormatter.dateFormat = "EEEE"
         tableView.registerNIB(DayWeatherTableViewCell.self)
         tableView.separatorColor = .clear
         tableView.allowsSelection = false
-        
+
         tableView.backgroundView = backgroundView
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
     }
-    
+
     @available(*, unavailable, message: "Cat not use inside storyboard")
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setDefaulValues()
@@ -55,7 +55,7 @@ class LocationPreviewTableViewController: UITableViewController {
             .done(showPlaceInformation)
             .catch(showError)
     }
-    
+
     /// Fija los valores por defecto de todos los componetes de vista
     private func setDefaulValues() {
         locationLabel.text = location.title
@@ -64,7 +64,7 @@ class LocationPreviewTableViewController: UITableViewController {
         imageView.image = UIImage()
         temperatureLabel.text = temperatureFormatt(0)
     }
-    
+
     private func showPlaceInformation(_ place: Place) {
         locationLabel.text = place.title
         weathers = place.weathers.sorted { $0.date < $1.date }
@@ -75,21 +75,20 @@ class LocationPreviewTableViewController: UITableViewController {
         temperatureLabel.setUpdateBlock { value, sender in
             sender.text = self.temperatureFormatt(value)
         }
-        
-    
+
         let date = dayNameFormatter.string(from: Date())
         statusLabel.text = "\(date) - \(current.status.rawValue)"
-        
+
         ImageService
             .getImageURL(status: current.statusCode)
-            .compactMap{ UIImage(data: $0) }
+            .compactMap { UIImage(data: $0) }
             .done { img in
                 self.imageView.animateUpdateImage(img)
             }.catch(self.showError)
-                    
+
         tableView.reloadData()
     }
-    
+
     /// Formatea un valor de una temperature a un valor reprecentable para el usuario
     /// - Parameters:
     ///   - temperature: El valor de la temperatura
@@ -102,17 +101,17 @@ class LocationPreviewTableViewController: UITableViewController {
         formatter.numberFormatter.maximumFractionDigits = 0
         return formatter.string(from: temperature)
     }
-    
-    //MARK: - Table Source
+
+    // MARK: - Table Source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         weathers.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeue(cell: DayWeatherTableViewCell.self, for: indexPath) else {
             preconditionFailure("Needs register cell before")
         }
-        
+
         let weather = weathers[indexPath.row]
         cell.dayLabel.text = dayNameFormatter.string(from: weather.date)
         cell.statusLabel.text = weather.status.rawValue
