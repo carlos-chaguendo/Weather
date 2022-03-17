@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PKHUD
 import WeatherCore
 
 class LocationPreviewTableViewController: UITableViewController {
