@@ -18,7 +18,7 @@ public class Http {
         return "\(Http.api)\(url)"
     }
     
-    public static func request<Element: Codable>(_ method: HTTPMethod, _ url:String, parameters: Parameters) -> Promise<Element?> {
+    public static func request<Element: Codable>(_ method: HTTPMethod, _ url:String, parameters: Parameters? = nil) -> Promise<Element?> {
         Promise { seal in
             AF.request(unwrapurl(route: url), method: method, parameters: parameters)
                 .responseDecodable(of: Element.self) { response in
@@ -33,7 +33,7 @@ public class Http {
         }
     }
     
-    public static func request<Element: Codable>(_ method: HTTPMethod, _ url:String, parameters: Parameters) -> Promise<[Element]> {
+    public static func request<Element: Codable>(_ method: HTTPMethod, _ url:String, parameters: Parameters? = nil) -> Promise<[Element]> {
         Promise { seal in
             AF.request(unwrapurl(route: url), method: method, parameters: parameters)
                 .responseDecodable(of: [Element].self) { response in

@@ -52,7 +52,7 @@ class SearchLocationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let location = locations[indexPath.row]
-        let ctrl = LocationPreviewTableViewController(woeid: location.woeid)
+        let ctrl = LocationPreviewTableViewController(location: location)
         self.show(ctrl, sender: nil)
     }
     

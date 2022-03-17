@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationPreviewTableViewController" customModule="Weather" customModuleProvider="target">
             <connections>
+                <outlet property="imageView" destination="AwS-gq-1Fx" id="jfS-Ax-kir"/>
+                <outlet property="locationLabel" destination="4il-We-IDZ" id="309-Iq-WNY"/>
+                <outlet property="statusLabel" destination="c45-95-2iZ" id="MpG-XU-tsV"/>
+                <outlet property="temperatureLabel" destination="zVQ-w2-WUS" id="SVI-w3-G7K"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +25,7 @@
             <viewLayoutGuide key="safeArea" id="vLr-E1-eTs"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <view key="tableHeaderView" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="OzD-wg-boX">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="214"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VaG-Li-6z1">
@@ -42,28 +46,33 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c45-95-2iZ">
-                        <rect key="frame" x="20" y="120" width="374" height="17"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7f-U1-YVH">
+                        <rect key="frame" x="21" y="130" width="372" height="17"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c45-95-2iZ">
+                                <rect key="frame" x="0.0" y="0.0" width="372" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popayan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4il-We-IDZ">
-                        <rect key="frame" x="20" y="137" width="374" height="37"/>
+                        <rect key="frame" x="21" y="147" width="372" height="37"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4il-We-IDZ" firstAttribute="trailing" secondItem="c45-95-2iZ" secondAttribute="trailing" id="Hf8-ZG-rza"/>
-                    <constraint firstItem="c45-95-2iZ" firstAttribute="leading" secondItem="OzD-wg-boX" secondAttribute="leadingMargin" id="JxQ-la-XFU"/>
-                    <constraint firstItem="4il-We-IDZ" firstAttribute="leading" secondItem="c45-95-2iZ" secondAttribute="leading" id="Vke-km-2Qi"/>
+                    <constraint firstItem="m7f-U1-YVH" firstAttribute="top" secondItem="VaG-Li-6z1" secondAttribute="bottom" constant="20" id="1cF-69-mOy"/>
+                    <constraint firstItem="4il-We-IDZ" firstAttribute="trailing" secondItem="m7f-U1-YVH" secondAttribute="trailing" id="A6T-jb-Seu"/>
+                    <constraint firstItem="4il-We-IDZ" firstAttribute="top" secondItem="m7f-U1-YVH" secondAttribute="bottom" id="ABx-Du-I9N"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="m7f-U1-YVH" secondAttribute="trailing" constant="1" id="DaN-Vh-t3Q"/>
                     <constraint firstItem="VaG-Li-6z1" firstAttribute="centerX" secondItem="OzD-wg-boX" secondAttribute="centerX" id="Wiw-Pz-3lc"/>
                     <constraint firstItem="VaG-Li-6z1" firstAttribute="top" secondItem="OzD-wg-boX" secondAttribute="top" constant="10" id="bWJ-Uf-1pg"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="c45-95-2iZ" secondAttribute="trailing" id="kDN-kK-EXp"/>
-                    <constraint firstItem="4il-We-IDZ" firstAttribute="top" secondItem="c45-95-2iZ" secondAttribute="bottom" id="pk8-zn-dHJ"/>
-                    <constraint firstItem="c45-95-2iZ" firstAttribute="top" secondItem="VaG-Li-6z1" secondAttribute="bottom" constant="10" id="vdo-ae-vpK"/>
+                    <constraint firstItem="4il-We-IDZ" firstAttribute="leading" secondItem="m7f-U1-YVH" secondAttribute="leading" id="ut5-aE-ab6"/>
+                    <constraint firstItem="m7f-U1-YVH" firstAttribute="leading" secondItem="OzD-wg-boX" secondAttribute="leadingMargin" constant="1" id="wXV-NT-Gr0"/>
                 </constraints>
             </view>
             <connections>

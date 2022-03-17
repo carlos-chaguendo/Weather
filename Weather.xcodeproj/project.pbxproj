@@ -17,9 +17,12 @@
 		788BFA2C27E295F2008B4D00 /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788BFA2A27E295F2008B4D00 /* SearchLocationTableViewController.swift */; };
 		788BFA2D27E295F2008B4D00 /* SearchLocationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788BFA2B27E295F2008B4D00 /* SearchLocationTableViewController.xib */; };
 		788BFA3027E296A7008B4D00 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788BFA2F27E296A7008B4D00 /* SearchController.swift */; };
-		788BFA3327E29C3B008B4D00 /* UItableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788BFA3227E29C3B008B4D00 /* UItableView.swift */; };
+		788BFA3327E29C3B008B4D00 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788BFA3227E29C3B008B4D00 /* UITableView.swift */; };
 		788BFA3B27E2A640008B4D00 /* LocationPreviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788BFA3927E2A640008B4D00 /* LocationPreviewTableViewController.swift */; };
 		788BFA3C27E2A640008B4D00 /* LocationPreviewTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788BFA3A27E2A640008B4D00 /* LocationPreviewTableViewController.xib */; };
+		788BFA3F27E2C9B6008B4D00 /* DayWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788BFA3D27E2C9B6008B4D00 /* DayWeatherTableViewCell.swift */; };
+		788BFA4027E2C9B6008B4D00 /* DayWeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788BFA3E27E2C9B6008B4D00 /* DayWeatherTableViewCell.xib */; };
+		788BFA4227E2C9E2008B4D00 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788BFA4127E2C9E2008B4D00 /* UIImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +57,12 @@
 		788BFA2A27E295F2008B4D00 /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
 		788BFA2B27E295F2008B4D00 /* SearchLocationTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLocationTableViewController.xib; sourceTree = "<group>"; };
 		788BFA2F27E296A7008B4D00 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		788BFA3227E29C3B008B4D00 /* UItableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UItableView.swift; sourceTree = "<group>"; };
+		788BFA3227E29C3B008B4D00 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		788BFA3927E2A640008B4D00 /* LocationPreviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPreviewTableViewController.swift; sourceTree = "<group>"; };
 		788BFA3A27E2A640008B4D00 /* LocationPreviewTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationPreviewTableViewController.xib; sourceTree = "<group>"; };
+		788BFA3D27E2C9B6008B4D00 /* DayWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		788BFA3E27E2C9B6008B4D00 /* DayWeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayWeatherTableViewCell.xib; sourceTree = "<group>"; };
+		788BFA4127E2C9E2008B4D00 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +180,8 @@
 		788BFA3127E29C2D008B4D00 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				788BFA3227E29C3B008B4D00 /* UItableView.swift */,
+				788BFA3227E29C3B008B4D00 /* UITableView.swift */,
+				788BFA4127E2C9E2008B4D00 /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -184,6 +191,8 @@
 			children = (
 				788BFA3927E2A640008B4D00 /* LocationPreviewTableViewController.swift */,
 				788BFA3A27E2A640008B4D00 /* LocationPreviewTableViewController.xib */,
+				788BFA3D27E2C9B6008B4D00 /* DayWeatherTableViewCell.swift */,
+				788BFA3E27E2C9B6008B4D00 /* DayWeatherTableViewCell.xib */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -301,6 +310,7 @@
 				788BF9F927E27F9B008B4D00 /* LaunchScreen.storyboard in Resources */,
 				788BF9F627E27F9B008B4D00 /* Assets.xcassets in Resources */,
 				788BFA3C27E2A640008B4D00 /* LocationPreviewTableViewController.xib in Resources */,
+				788BFA4027E2C9B6008B4D00 /* DayWeatherTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,9 +337,11 @@
 			files = (
 				788BF9ED27E27F9A008B4D00 /* AppDelegate.swift in Sources */,
 				788BFA3B27E2A640008B4D00 /* LocationPreviewTableViewController.swift in Sources */,
-				788BFA3327E29C3B008B4D00 /* UItableView.swift in Sources */,
+				788BFA3327E29C3B008B4D00 /* UITableView.swift in Sources */,
+				788BFA3F27E2C9B6008B4D00 /* DayWeatherTableViewCell.swift in Sources */,
 				788BFA3027E296A7008B4D00 /* SearchController.swift in Sources */,
 				788BFA2C27E295F2008B4D00 /* SearchLocationTableViewController.swift in Sources */,
+				788BFA4227E2C9E2008B4D00 /* UIImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
