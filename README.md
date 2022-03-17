@@ -1,3 +1,5 @@
+![](https://raw.githubusercontent.com/carlos-chaguendo/Weather/main/main.png)
+
 # Weather
 Weather es una aplicacion disponible en iOS iPadOS, macOS que nos ayuda a consultar el estado del clima de diferentes ubicaciones 
 
