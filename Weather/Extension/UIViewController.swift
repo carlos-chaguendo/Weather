@@ -14,6 +14,10 @@ extension UIViewController {
     /// - Parameter error: 
     func showError(_ error: Error) {
         print(error)
+        let error = error as NSError
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Accept", style: .cancel))
+        self.present(alert, animated: true)
     }
     
 }

@@ -36,9 +36,9 @@ class SearchLocationTableViewController: UITableViewController {
         super.loadView()
         navigationItem.title = "Locations"
         tableView.backgroundView = backgroundView
+        tableView.keyboardDismissMode = .interactive
         if #available(iOS 13, *) {
             navigationItem.searchController = SearchController(delegate: self)
-            navigationItem.searchController?.searchBar.showsCancelButton = false
             navigationItem.searchController?.searchBar.placeholder = "Search by city name"
         } else {
             let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
@@ -74,6 +74,8 @@ class SearchLocationTableViewController: UITableViewController {
          .map { "\($0.coordinate.latitude),\($0.coordinate.longitude)"}
          .then { location in
             LocationService.searchBy(latlong: location)
+         }.ensure {
+             self.view.endEditing(true)
          }.done(on: DispatchQueue.main) { locations in
              self.locations = locations
              self.tableView.reloadData()
@@ -126,6 +128,7 @@ extension SearchLocationTableViewController: SearchControllerDelegate {
     func clearFilter(for vc: SearchController) {
         self.locations = []
         self.tableView.reloadData()
+        self.view.endEditing(true)
     }
     
     func searchController(_ vc: SearchController, textDidChange searchText: String) {

@@ -62,8 +62,7 @@ class LocationPreviewTableViewController: UITableViewController {
         temperatureLabel.text = ""
         statusLabel.text = dayNameFormatter.string(from: Date())
         imageView.image = UIImage()
-        let temperature = Measurement(value: 0, unit: UnitTemperature.celsius)
-        temperatureLabel.text = formatter.string(from: temperature)
+        temperatureLabel.text = temperatureFormatt(0)
     }
     
     private func showPlaceInformation(_ place: Place) {
@@ -98,8 +97,7 @@ class LocationPreviewTableViewController: UITableViewController {
     ///   - options:
     /// - Returns: la temperatura formatead segun la configuracion del lenguage & region del dipositivo
     private func temperatureFormatt(_ temperature: Double, unit: UnitTemperature = .celsius, options: MeasurementFormatter.UnitOptions = []) -> String {
-        let ints = round(temperature)
-        let temperature = Measurement(value: ints, unit: unit)
+        let temperature = Measurement(value: temperature, unit: unit)
         formatter.unitOptions = options
         formatter.numberFormatter.maximumFractionDigits = 0
         return formatter.string(from: temperature)

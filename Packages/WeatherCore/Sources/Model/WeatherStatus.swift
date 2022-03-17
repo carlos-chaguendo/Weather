@@ -20,6 +20,7 @@ extension Weather {
         case heavyCloud = "Heavy Cloud"
         case lightCloud = "Light Cloud"
         case celar = "Clear"
+        case thunder = "Thunder"
     }
     
 }
