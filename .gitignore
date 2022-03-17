@@ -44,7 +44,6 @@ playground.xcworkspace
 #
 Pods/
 Pods/*
-AdivantusIphone.xcworkspace
 
 # Carthage
 #
@@ -78,4 +77,7 @@ DerivedData/
 .swiftpm
 
 Package.resolved
+*/Package.resolved
 
+
+Weather.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
