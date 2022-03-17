@@ -25,16 +25,16 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bak" translatesAutoresizingMaskIntoConstraints="NO" id="tIc-mb-iVN">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <rect key="frame" x="-10" y="0.0" width="340" height="480"/>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="IDp-7Z-6Ul"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="tIc-mb-iVN" firstAttribute="trailing" secondItem="IDp-7Z-6Ul" secondAttribute="trailing" id="KJE-9G-i4f"/>
-                <constraint firstItem="tIc-mb-iVN" firstAttribute="bottom" secondItem="IDp-7Z-6Ul" secondAttribute="bottom" id="QzT-rJ-Hwe"/>
-                <constraint firstItem="tIc-mb-iVN" firstAttribute="leading" secondItem="IDp-7Z-6Ul" secondAttribute="leading" id="faN-YG-bh1"/>
-                <constraint firstItem="tIc-mb-iVN" firstAttribute="top" secondItem="IDp-7Z-6Ul" secondAttribute="top" id="ifc-oa-Bbz"/>
+                <constraint firstItem="tIc-mb-iVN" firstAttribute="trailing" secondItem="WlK-iW-mHn" secondAttribute="trailing" constant="10" id="KJE-9G-i4f"/>
+                <constraint firstItem="tIc-mb-iVN" firstAttribute="bottom" secondItem="WlK-iW-mHn" secondAttribute="bottom" id="QzT-rJ-Hwe"/>
+                <constraint firstItem="tIc-mb-iVN" firstAttribute="leading" secondItem="WlK-iW-mHn" secondAttribute="leading" constant="-10" id="faN-YG-bh1"/>
+                <constraint firstItem="tIc-mb-iVN" firstAttribute="top" secondItem="WlK-iW-mHn" secondAttribute="top" id="ifc-oa-Bbz"/>
             </constraints>
             <point key="canvasLocation" x="137" y="740"/>
         </view>
@@ -105,7 +105,7 @@
     </objects>
     <resources>
         <image name="Showers" width="600" height="600"/>
-        <image name="bak" width="688" height="1072"/>
+        <image name="bak" width="606" height="988"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

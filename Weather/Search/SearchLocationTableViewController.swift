@@ -16,9 +16,9 @@ class SearchLocationTableViewController: UITableViewController {
     
     private let locationManager = CLLocationManager()
     private var locations:[Location] = []
-    
     private var searchController: SearchController?
     
+    @IBOutlet var backgroundView: UIView!
     @IBOutlet weak var emptyButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -35,6 +35,7 @@ class SearchLocationTableViewController: UITableViewController {
     override func loadView() {
         super.loadView()
         navigationItem.title = "Locations"
+        tableView.backgroundView = backgroundView
         if #available(iOS 13, *) {
             navigationItem.searchController = SearchController(delegate: self)
             navigationItem.searchController?.searchBar.showsCancelButton = false

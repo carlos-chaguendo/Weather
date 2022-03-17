@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchLocationTableViewController" customModule="Weather" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="BT6-04-uas" id="Z2l-XQ-gXC"/>
                 <outlet property="emptyButton" destination="567-Sg-TvM" id="8L0-qX-8xU"/>
                 <outlet property="emptyView" destination="LJY-SI-0VM" id="Rd0-jU-xBl"/>
                 <outlet property="messageLabel" destination="0Wg-qv-7Mt" id="Q4e-OY-hMp"/>
@@ -67,8 +68,27 @@
             </constraints>
             <point key="canvasLocation" x="826" y="80"/>
         </view>
+        <view contentMode="scaleToFill" id="BT6-04-uas">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountain" translatesAutoresizingMaskIntoConstraints="NO" id="g7g-qn-9Su">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="6i6-Ug-IuA"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="g7g-qn-9Su" secondAttribute="trailing" id="I2y-MI-aJv"/>
+                <constraint firstItem="g7g-qn-9Su" firstAttribute="top" secondItem="6i6-Ug-IuA" secondAttribute="top" id="Smz-UL-hSF"/>
+                <constraint firstAttribute="bottom" secondItem="g7g-qn-9Su" secondAttribute="bottom" id="maF-GQ-H2X"/>
+                <constraint firstItem="g7g-qn-9Su" firstAttribute="leading" secondItem="6i6-Ug-IuA" secondAttribute="leading" id="pfE-MX-D23"/>
+            </constraints>
+            <point key="canvasLocation" x="-584" y="80"/>
+        </view>
     </objects>
     <resources>
+        <image name="mountain" width="606" height="988"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
