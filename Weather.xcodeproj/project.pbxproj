@@ -51,7 +51,6 @@
 		788BFA0D27E27F9C008B4D00 /* WeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITests.swift; sourceTree = "<group>"; };
 		788BFA0F27E27F9C008B4D00 /* WeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		788BFA2027E2809F008B4D00 /* WeatherCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = WeatherCore; path = Packages/WeatherCore; sourceTree = "<group>"; };
-		788BFA2427E28566008B4D00 /* Packages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Packages; sourceTree = "<group>"; };
 		788BFA2A27E295F2008B4D00 /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
 		788BFA2B27E295F2008B4D00 /* SearchLocationTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchLocationTableViewController.xib; sourceTree = "<group>"; };
 		788BFA2F27E296A7008B4D00 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -144,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				788BFA2027E2809F008B4D00 /* WeatherCore */,
-				788BFA2427E28566008B4D00 /* Packages */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
