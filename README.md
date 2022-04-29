@@ -34,6 +34,7 @@ Si surge algún erro con las dependencias se puede eliminar la cache
     
 
 ## Por hacer
+ - Integrar git actions
  - Sección de favoritos
  - usar WidgetKit para mostrar la información de una ubicación en la pantalla de inicio
  	- Para esto se puede usar WeatherCore  
